@@ -6,7 +6,7 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 08:44:29 by wfung             #+#    #+#             */
-/*   Updated: 2017/05/05 14:57:24 by wfung            ###   ########.fr       */
+/*   Updated: 2017/05/05 14:58:49 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ void		print_store(t_store *store)
 	int		i;
 
 	i = 0;
-	while (store->next)
+	t_store	*current;
+	current = store;
+	while (current->next)
 	{
-		printf("//store [%i] [%i]\n", i, store->x);
-		store = store->next;
+		printf("//store [%i] [%i]\n", i, current->x);
+		current = current->next;
 	//	printf("/store [%i] [%i]\n", i, store->x);
 	}
 }
