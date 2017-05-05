@@ -6,11 +6,29 @@
 /*   By: wfung <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/05 08:44:29 by wfung             #+#    #+#             */
-/*   Updated: 2017/05/05 14:58:49 by wfung            ###   ########.fr       */
+/*   Updated: 2017/05/05 15:03:46 by wfung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_db.h"
+
+void		free_store(t_store *store)
+{
+	int		i;
+
+	i = 0;
+	t_store *current;
+	current = store;
+	while (current->next)
+	{
+		printf("at store [%i]\n", current->x);
+		current = current->next;
+		free(store);
+		store = current;
+		printf("freed %i\n", i);
+		i++;
+	}
+}
 
 void		print_store(t_store *store)
 {
@@ -61,5 +79,6 @@ int		main(void)
 	t_store	*hey;
 	hey = ft_db(x, y);
 	print_store(hey);
+	free_store(hey);
 	return (0);
 }
